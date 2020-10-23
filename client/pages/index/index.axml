@@ -1,0 +1,27 @@
+
+<view>
+  <swiper 
+    style="height:150px"
+    class="demo-swiper"
+    indicator-dots="{{banner.indicatorDots}}"
+    autoplay="{{banner.autoplay}}"
+    vertical="{{banner.vertical}}"
+    interval="{{banner.interval}}"
+    circular="{{banner.circular}}"
+  >
+    <block a:for="{{banner.background}}">
+      <swiper-item key="swiper-item-{{index}}">
+        <view class="swiper-item" style="background-color: {{item}}">
+          <image mode="scaleToFill" src="/assetes/image/{{index}}.jpg"/>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <scroll-view>
+    <list>
+      <list-item a:for="{{newsList}}" key="list-item-{{index}}">
+        {{item.title}}
+      </list-item>
+    </list>
+  </scroll-view>
+</view>
