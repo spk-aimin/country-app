@@ -1,5 +1,5 @@
 const { isPlainObject } = require('lodash')
-const OrderService = require('./services/order')
+const AliAuthService = require('./services/ali-auth')
 
 
 /**
@@ -12,18 +12,19 @@ module.exports = async function (ctx) {
       url,
       data = {}
     },
+    cloud,
     mpserverless
   } = ctx
-  const order = new OrderService(mpserverless)
+  const aliAuth = new AliAuthService(mpserverless, cloud)
   let res = null
 
   switch (url) {
-    case 'order/query':
-      res = await order.query(data);
+    case 'ali-auth/get-token':
+      res = await aliAuth.getToken(data);
       break;
-    case 'order/create':
-      res = await order.create(data);
-      break;
+    case 'ali-auth/get-user-info-from-alipay':
+      res = await aliAuth.getUserInfoFromAlipay(data)
+      break
     default:
       throw new Error(`缺少对应的action: ${url}`)
   }

@@ -11,17 +11,26 @@
   >
     <block a:for="{{banner.background}}">
       <swiper-item key="swiper-item-{{index}}">
-        <view class="swiper-item" style="background-color: {{item}}">
-          <image mode="scaleToFill" src="/assetes/image/{{index}}.jpg"/>
+        <view class="swiper-item">
+          <image mode="scaleToFill" src="/assetes/image/{{index + 1}}.jpg"/>
         </view>
       </swiper-item>
     </block>
   </swiper>
-  <scroll-view>
-    <list>
-      <list-item a:for="{{newsList}}" key="list-item-{{index}}">
+  <!--新闻资讯-->
+  <view class="module">
+    <view class="module-top">
+      <text class="module-title">资讯快递</text>
+    </view>
+    <list class="module-list">
+      <list-item data-id="{{item._id}}" a:for="{{newsList}}" key="list-item-{{index}}" onClick="linkToUser">
         {{item.title}}
       </list-item>
     </list>
-  </scroll-view>
+  </view>
+</view>
+<view>
+  <button open-type="getAuthorize" onGetAuthorize="getUserInfo" scope='userInfo'>
+  获取用户信息
+  </button>
 </view>

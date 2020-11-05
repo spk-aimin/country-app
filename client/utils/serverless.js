@@ -1,6 +1,7 @@
 import MPServerless from "@alicloud/mpserverless-sdk";
 import serverlessConfig from "./serverless.config";
 import { memoize } from "lodash-es";
+import cloud from 'alipay-serverless-sdk'
 
 async function authorize() {
   const res = await my.serverless.user.authorize({
@@ -57,4 +58,5 @@ export function serverlessInit() {
     },
     serverlessConfig
   );
+  cloud.init(my.serverless)
 }

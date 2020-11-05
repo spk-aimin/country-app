@@ -1,0 +1,12 @@
+<!--文章-->
+<view class="article">
+  <view class="article-title">
+    {{article.title}}
+  </view>
+  <rich-text class="content" nodes="{{article.nodes}}">
+  </rich-text>
+</view>
+<!--评论-->
+<view>
+</view>
+<!--推荐-->

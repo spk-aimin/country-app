@@ -21,6 +21,9 @@ module.exports = async function (ctx) {
     case 'news/list':
       res = await order.queryList(data);
       break;
+    case 'news/detail':
+      res = await order.queryDetail(data);
+      break;
     default:
       throw new Error(`缺少对应的action: ${url}`)
   }

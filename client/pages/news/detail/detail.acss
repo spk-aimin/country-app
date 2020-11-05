@@ -1,0 +1,19 @@
+.article {
+  padding: 20rpx;
+  background-color: #fff;
+}
+.article-title {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.content {
+  font-size: 28rpx;
+  line-height: 1.5;
+  margin-top: 20rpx;
+}
+.content * {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}

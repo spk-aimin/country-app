@@ -1,5 +1,21 @@
 .swiper-item{
   display: block;
-  height: 150px;
+  height: 300rpx;
   background-color:#e0ffff;
+}
+.swiper-item image {
+  width: 100%;
+}
+.module {
+  background-color: #fff;
+}
+.module-top {
+  padding: 20rpx
+}
+.module-top .module-title {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.module-list {
+  font-size: 28rpx;
 }

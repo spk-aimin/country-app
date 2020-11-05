@@ -2,6 +2,34 @@
   "pages": [
     "pages/index/index"
   ],
+  "subPackages": [
+    {
+      "root": "pages/user",
+      "pages": [
+        "index/index"
+      ]
+    }, {
+      "root": "pages/news",
+      "pages": [
+        "detail/detail"
+      ]
+    }
+  ],
+  "tabBar": {
+    "textColor": "#dddddd",
+    "selectedColor": "#49a9ee",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "首页"
+      },
+      {
+        "pagePath": "pages/user/index/index",
+        "name": "我的"
+      }
+    ]
+  },
   "window": {
     "defaultTitle": "农村大事件"
   }

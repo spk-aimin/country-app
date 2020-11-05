@@ -12,6 +12,10 @@ Page({
     },
     newsList: []
   },
+  linkToUser(event) {
+    let {id} = event.target.dataset
+    my.navigateTo({url: `/pages/news/detail/detail?id=${id}`})
+  },
   async onLoad(query) {
     let newsList = await invokeFunction({
       name: 'country',
@@ -19,6 +23,36 @@ Page({
     })
     this.setData({
       newsList
+    })
+  },
+  getUserInfo() {
+     my.getAuthCode({ // 用户授权
+      scopes: ['auth_user'],
+      success: async (res) => {
+        const auth = await invokeFunction({
+          name: 'user',
+          url: 'ali-auth/get-token',
+          data: {
+            authCode: res.authCode
+          }
+        })
+        console.log(auth)
+        const info = await invokeFunction({
+          name: 'user',
+          url: 'ali-auth/get-user-info-from-alipay',
+          data: {
+            authCode: auth.accessToken
+          }
+        })
+        console.log(info)
+      }
+    })
+    my.getOpenUserInfo({
+      fail: (res) => {
+      },
+      success: (res) => {
+        console.log(res)
+      }
     })
   },
   onReady() {
